@@ -1,8 +1,11 @@
-import logo from "./logo.svg";
-import "./App.css";
+import Todo from "./components/todoreact/Todo";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <div>
+      <Todo />
+    </div>
+  );
 }
 
 export default App;
