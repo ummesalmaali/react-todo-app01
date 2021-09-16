@@ -21,6 +21,18 @@ function Todo() {
   const addItem = () => {
     if (!inputData) {
       alert("Please enter a task");
+    } else if (inputData && toggleButton) {
+      setItems(
+        items.map((curEle) => {
+          if (curEle.id === isEditItem) {
+            return { ...curEle, name: inputData };
+          }
+          return curEle;
+        })
+      );
+      setInputData("");
+      setIsEditItem(null);
+      setToggleButton(false);
     } else {
       const newInputData = {
         id: new Date().getTime().toString(),
@@ -90,7 +102,7 @@ function Todo() {
                     <div className="todo-btn">
                       <i
                         className="far fa-edit add-btn"
-                        onclick={() => editItem(curEle.id)}
+                        onClick={() => editItem(curEle.id)}
                       ></i>
                       <i
                         className="far fa-trash-alt add-btn"
